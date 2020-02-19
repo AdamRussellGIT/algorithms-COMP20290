@@ -27,10 +27,9 @@ public class RussianPeasent
 
     public static void main(String[] args)
     {
-        final long startTime = System.currentTimeMillis();
-        System.out.println(startTime);
-        System.out.println(RusPesAlg(1234567, 777377));
-        final long elapsedTime = System.currentTimeMillis();
+        final long startTime = System.nanoTime();
+        System.out.println(RusPesAlg(300, 382));
+        final long elapsedTime = System.nanoTime();
         System.out.println("The time take was " + (elapsedTime - startTime));
     }
 }
