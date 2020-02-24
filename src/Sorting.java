@@ -60,14 +60,172 @@ public class Sorting
         }
     }
 
+    public static void mergeSort(int[] a, int n)
+    {
+        if (n < 2)
+        {
+            return;
+        }
+
+        int mid = n/2;
+        int[] left = new int[mid];
+        int[] right = new int[n-mid];
+
+        for (int i = 0; i < mid; i++)
+        {
+            left[i] = a[i];
+        }
+
+        for (int j = mid; j < n; j++)
+        {
+            right[j-mid] = a[j];
+        }
+
+        mergeSort(left, mid);
+        mergeSort(right, n-mid);
+
+        merge(a, left, right, mid, n-mid);
+    }
+
+    public static void merge(int[] a, int[] left, int[] right, int l, int r)
+    {
+        int i = 0;
+        int j = 0;
+        int k = 0;
+
+        while (i < left.length && j < right.length)
+        {
+            if (left[i] <= right[j])
+            {
+                a[k++] = left[i++];
+            }
+
+            else
+            {
+                a[k++] = right[j++];
+            }
+        }
+
+        while (i < left.length)
+        {
+            a[k++] = left[i++];
+        }
+
+        while (j < right.length)
+        {
+            a[k++] = right[j++];
+        }
+    }
+
+    public static void mergeSortEnhanced(int[] a, int n)
+    {
+        if (sorted(a))
+        {
+            return;
+        }
+
+        if (n < 7)
+        {
+            insertionSort(a);
+            return;
+        }
+
+        int mid = n/2;
+        int[] left = new int[mid];
+        int[] right = new int[n-mid];
+
+        for (int i = 0; i < mid; i++)
+        {
+            left[i] = a[i];
+        }
+
+        for (int j = mid; j < n; j++)
+        {
+            right[j-mid] = a[j];
+        }
+
+        mergeSort(left, mid);
+        mergeSort(right, n-mid);
+
+        merge(a, left, right, mid, n-mid);
+    }
+
+    public static void mergeEnhanced(int arr[], int l, int m, int r)
+    {
+        int n1 = m - l + 1;
+        int n2 = r - m;
+
+        int[] left = new int[n1];
+        int[] right = new int [n2];
+
+        for (int a = 0; a < n1; a++)
+        {
+            left[a] = arr[l+a];
+        }
+
+        for (int b = 0; b < n2; b++)
+        {
+            right[b] = arr[m+1+b];
+        }
+
+        int i = 0;
+        int j = 0;
+        int k = l;
+
+        while (i < n1 && j < n2)
+        {
+            if (left[i] <= right[j])
+            {
+                arr[k] = left[i];
+                i++;
+            }
+
+            else
+            {
+                arr[k] = right[j];
+                j++;
+            }
+
+            k++;
+        }
+
+        while (i < n1)
+        {
+            arr[k] = left[i];
+            i++;
+            k++;
+        }
+
+        while (j < n2)
+        {
+            arr[k] = right[j];
+            j++;
+            k++;
+        }
+    }
+
+    public static boolean sorted(int[] a)
+    {
+        for (int i = 1; i < a.length; i++) {
+            if (a[i] < a[i - 1]) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
     public static void main(String[] args)
     {
-        int size = 10;
+        int size = 10000;
         int temp;
 
         int[] arrayA = new int[size];
         int[] arrayB = new int[size];
         int[] arrayC = new int[size];
+        int[] arrayD = new int[size];
+        int[] arrayE = new int[size];
+        int[] aux = new int[size];
 
         for (int i = 0; i < size; i++)
         {
@@ -75,6 +233,8 @@ public class Sorting
             arrayA[i] = temp;
             arrayB[i] = temp;
             arrayC[i] = temp;
+            arrayD[i] = temp;
+            arrayE[i] = temp;
         }
 
         long startTimeSelection = System.nanoTime();
@@ -89,9 +249,18 @@ public class Sorting
         stalinSort(arrayC);
         long estimatedTimeStalin = System.nanoTime() - startTimeStalin;
 
+        long startTimeMergeSort = System.nanoTime();
+        mergeSort(arrayD, arrayD.length);
+        long estimatedTimeMergeSort = System.nanoTime() - startTimeMergeSort;
+
+        long startTimeMergeSortEnhanced = System.nanoTime();
+        mergeSortEnhanced(arrayE, arrayE.length);
+        long estimatedTimeMergeSortEnhanced = System.nanoTime() - startTimeMergeSortEnhanced;
+
         System.out.println("Selection Sort: " + Arrays.toString(arrayA) + "took : " + estimatedTimeSelection + " nano seconds.");
         System.out.println("Insertion Sort: " + Arrays.toString(arrayB) + "took : " + estimatedTimeInsertion + " nano seconds.");
         System.out.println("Stalin Sort: " + Arrays.toString(arrayC) + "took : " + estimatedTimeStalin + " nano seconds.");
-
+        System.out.println("Merge Sort: " + Arrays.toString(arrayD) + "took : " + estimatedTimeMergeSort + " nano seconds.");
+        System.out.println("Merge Sort Enhanced: " + Arrays.toString(arrayE) + "took : " + estimatedTimeMergeSortEnhanced + " nano seconds.");
     }
 }
