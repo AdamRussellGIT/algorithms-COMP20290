@@ -214,10 +214,131 @@ public class Sorting
 
         return true;
     }
+    public static void quickSort(int[] arr, int high, int low)
+    {
+        if (high <= (low + 30))
+        {
+            insertionSort(arr);
+        }
+
+        if (low < high)
+        {
+            int pi = partition(arr, low, high);
+
+            quickSort(arr, low, pi - 1);
+            quickSort(arr, pi + 1, high);
+        }
+    }
+
+    public static int partition(int[] arr, int low, int high)
+    {
+        int pivot = arr[high];
+
+        int i = low - 1;
+
+        for (int j = low; j <= (high - 1); j++)
+        {
+            if (arr[j] < pivot)
+            {
+                i++;
+
+                int temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+            }
+        }
+
+        int temp2 = arr[i+1];
+        arr[i+1] = arr[high];
+        arr[high] = temp2;
+
+        return i + 1;
+    }
+
+
+    public static void quickSortEnhanced(int[] arr, int high, int low)
+    {
+        if (high <= (low + 10))
+        {
+            insertionSort(arr);
+        }
+
+        if (low < high)
+        {
+            int pi = partition(arr, low, high);
+
+            quickSort(arr, low, pi - 1);
+            quickSort(arr, pi + 1, high);
+        }
+    }
+
+    public static int partitionEnhanced(int[] arr, int low, int high)
+    {
+        int pivot = medianOf3( low, low + (high - low)/2, high);
+
+        int i = low - 1;
+
+        for (int j = low; j <= (high - 1); j++)
+        {
+            if (arr[j] < pivot)
+            {
+                i++;
+
+                int temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+            }
+        }
+
+        int temp2 = arr[i+1];
+        arr[i+1] = arr[high];
+        arr[high] = temp2;
+
+        return i + 1;
+    }
+
+    public static void shuffle(int[] a) {
+        int n = a.length;
+        for (int i = 0; i < n; i++) {
+            // choose index uniformly in [0, i]
+            int r = (int) (Math.random() * (i + 1));
+            int swap = a[r];
+            a[r] = a[i];
+            a[i] = swap;
+        }
+    }
+
+    public static int medianOf3(int one, int two, int three)
+    {
+        if (one > two)
+        {
+            if (three > two)
+            {
+                if (one > three)
+                {
+                    return three;
+                }
+
+                return two;
+            }
+        }
+
+        if (three > two)
+        {
+            return two;
+        }
+
+        if (one > three)
+        {
+            return three;
+        }
+
+        return one;
+    }
 
     public static void main(String[] args)
     {
-        int size = 10000;
+        int size = 100;
         int temp;
 
         int[] arrayA = new int[size];
@@ -225,6 +346,8 @@ public class Sorting
         int[] arrayC = new int[size];
         int[] arrayD = new int[size];
         int[] arrayE = new int[size];
+        int[] arrayF = new int[size];
+        int[] arrayG = new int[size];
         int[] aux = new int[size];
 
         for (int i = 0; i < size; i++)
@@ -235,6 +358,8 @@ public class Sorting
             arrayC[i] = temp;
             arrayD[i] = temp;
             arrayE[i] = temp;
+            arrayF[i] = temp;
+            arrayG[i] = temp;
         }
 
         long startTimeSelection = System.nanoTime();
@@ -257,10 +382,21 @@ public class Sorting
         mergeSortEnhanced(arrayE, arrayE.length);
         long estimatedTimeMergeSortEnhanced = System.nanoTime() - startTimeMergeSortEnhanced;
 
+        long startTimeQuickSort = System.nanoTime();
+        quickSort(arrayF, 0, arrayF.length-1);
+        long estimatedTimeQuickSort = System.nanoTime() - startTimeQuickSort;
+
+        //shuffle(arrayG);
+        long startTimeQuickSortEnhanced = System.nanoTime();
+        quickSortEnhanced(arrayG, 0, arrayF.length-1);
+        long estimatedTimeQuickSortEnhanced = System.nanoTime() - startTimeQuickSortEnhanced;
+
         System.out.println("Selection Sort: " + Arrays.toString(arrayA) + "took : " + estimatedTimeSelection + " nano seconds.");
         System.out.println("Insertion Sort: " + Arrays.toString(arrayB) + "took : " + estimatedTimeInsertion + " nano seconds.");
         System.out.println("Stalin Sort: " + Arrays.toString(arrayC) + "took : " + estimatedTimeStalin + " nano seconds.");
         System.out.println("Merge Sort: " + Arrays.toString(arrayD) + "took : " + estimatedTimeMergeSort + " nano seconds.");
         System.out.println("Merge Sort Enhanced: " + Arrays.toString(arrayE) + "took : " + estimatedTimeMergeSortEnhanced + " nano seconds.");
+        System.out.println("Quick Sort: " + Arrays.toString(arrayF) + "took : " + estimatedTimeQuickSort + " nano seconds.");
+        System.out.println("Quick Sort Enhanced: " + Arrays.toString(arrayG) + "took : " + estimatedTimeQuickSortEnhanced + " nano seconds.");
     }
 }
