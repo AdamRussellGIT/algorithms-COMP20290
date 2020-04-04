@@ -1,113 +1,139 @@
-public class StringPatternMatching
+//class used to test implementations of all algorithms, and provide run time analysis
+
+import java.util.Arrays;
+
+public class Main
 {
-    public static int bruteForce(String txt, String pat)
-    {
-        int n = txt.length();
-        int m = pat.length();
-        boolean match;
-        int count = 0;
-
-        for (int pos = 0; pos < n-m; pos++)
-        {
-            match = true;
-
-            int walk;
-
-            for (walk = 0; walk < m; walk++)
-            {
-                if (txt.charAt(pos + walk) != pat.charAt(walk))
-                {
-                    match = false;
-                    break;
-                }
-            }
-
-            if (match)
-            {
-                count++;
-            }
-        }
-
-        return count;
-    }
-
-    public static int kmp(String txt, String pat)
-    {
-        int n = txt.length();
-        int m = pat.length();
-        int count = 0;
-
-        int[] lps = new int[m];
-
-        computeLPSArray(pat, lps);
-
-        int j = 0;
-        int i = 0;
-
-        while (i < n)
-        {
-            if (txt.charAt(i) == pat.charAt(j))
-            {
-                i++;
-                j++;
-            }
-
-            if (j == m)
-            {
-                count++;
-
-                j = lps[j-1];
-            }
-
-            else if ((i < n) && (txt.charAt(i) != pat.charAt(j)))
-            {
-                if (j != 0)
-                {
-                    j = lps[j-1];
-                }
-
-                else
-                {
-                    i++;
-                }
-            }
-        }
-
-        return count;
-    }
-
-    private static void computeLPSArray(String pat, int[] lps)
-    {
-        int len = 0;
-        int i = 1;
-        lps[0] = 0;
-
-        while (i < pat.length())
-        {
-            if (pat.charAt(i) == pat.charAt(len))
-            {
-                len++;
-                lps[i] = len;
-                i++;
-            }
-
-            else
-            {
-                if (len != 0)
-                {
-                    len = lps[len - 1];
-                }
-
-                else
-                {
-                    lps[i] = len;
-                    i++;
-                }
-            }
-        }
-    }
     public static void main(String[] args)
     {
+        System.out.println("The following is all algorithms (that could be run outside of their class) ran with some various different test cases.");
+        System.out.println("Each section will focus on a different algorithm (practical)");
+        System.out.println("Descriptions of what is happening will be provided in each section.");
+        System.out.println("N.B. For accurate timings, run each class individually, as calling classes from other methods will alter actual time taken.");
+
+        System.out.println("---------------------------------------------------------------------------");
+        System.out.println("RUSSIAN PEASANT ALGORITHM");
+
+        System.out.print("\n");
+        System.out.println("Multiply 245 x 500: ");
+        System.out.println(RussianPeasent.RusPesAlg(245, 500));
+
+        System.out.print("\n");
+        System.out.println("Multiply 20 x 680: ");
+        System.out.println(RussianPeasent.RusPesAlg(20, 680));
+
+        System.out.print("\n");
+        System.out.println("Multiply -502 x 946: ");
+        System.out.println(RussianPeasent.RusPesAlg(-502, 946));
+
+        System.out.print("\n");
+        System.out.println("Multiply 0 x 46: ");
+        System.out.println(RussianPeasent.RusPesAlg(0, 46));
+
+        System.out.print("\n");
+        System.out.println("Multiply 4 x 100000: ");
+        System.out.println(RussianPeasent.RusPesAlg(4, 100000));
+
+        System.out.print("\n");
+        System.out.println("---------------------------------------------------------------------------");
+        System.out.println("RECURSION (FIBONACCI AND TOWERSOFHANOI ALGORITHMS)");
+        int n;
+
+        System.out.print("\n");
+        n = 1;
+        System.out.println("The " + n + "st fibonacci number is: " + FibRecursion.fibNumber(n));
+
+        System.out.print("\n");
+        n = 5;
+        System.out.println("The " + n + "th fibonacci number is: " + FibRecursion.fibNumber(n));
+
+        System.out.print("\n");
+        n = 16;
+        System.out.println("The " + n + "th fibonacci number is: " + FibRecursion.fibNumber(n));
+
+        System.out.print("\n");
+        n = 32;
+        System.out.println("The " + n + "nd fibonacci number is: " + FibRecursion.fibNumber(n));
+
+        System.out.print("\n");
+
+        System.out.print("\n");
+        n = 2;
+        System.out.println("Pattern to move " + n + " towers: ");
+        TowersOfHanoi.moveTowers(n, "Source", "Destination", "Auxiliary");
+
+        System.out.print("\n");
+        n = 3;
+        System.out.println("Pattern to move " + n + " towers: ");
+        TowersOfHanoi.moveTowers(n, "Source", "Destination", "Auxiliary");
+
+        System.out.print("\n");
+        n = 5;
+        System.out.println("Pattern to move " + n + " towers: ");
+        TowersOfHanoi.moveTowers(n, "Source", "Destin", "Auxili");
+
+        System.out.print("\n");
+        System.out.println("---------------------------------------------------------------------------");
+        System.out.println("SORTING");
+
+        int size = 10;
+        int temp;
+
+
+        for (int i = 0; i < 4; i++) {
+            System.out.print("\n");
+            System.out.println("Sorting " + size + " elements: ");
+            System.out.print("\n");
+            int[] arrayA = new int[size];
+            int[] arrayB = new int[size];
+            int[] arrayC = new int[size];
+            int[] arrayD = new int[size];
+            int[] arrayE = new int[size];
+            int[] arrayF = new int[size];
+            int[] arrayG = new int[size];
+            int[] aux = new int[size];
+
+            for (int j = 0; j < size; j++) {
+                temp = (int) (Math.random() * ((1000 - 0) + 1)) + 0;
+                arrayA[j] = temp;
+                arrayB[j] = temp;
+                arrayC[j] = temp;
+                arrayD[j] = temp;
+                arrayE[j] = temp;
+                arrayF[j] = temp;
+                arrayG[j] = temp;
+            }
+
+            Sorting.selectionSort(arrayA);
+
+            Sorting.insertionSort(arrayB);
+
+            Sorting.stalinSort(arrayC);
+
+            Sorting.mergeSort(arrayD, arrayD.length);
+
+            Sorting.mergeSortEnhanced(arrayE, arrayE.length);
+
+            Sorting.quickSort(arrayF, 0, arrayF.length - 1);
+
+            //shuffle(arrayG);
+            Sorting.quickSortEnhanced(arrayG, 0, arrayF.length - 1);
+
+            System.out.println("Selection Sort: " + Arrays.toString(arrayA));
+            System.out.println("Insertion Sort: " + Arrays.toString(arrayB));
+            System.out.println("Stalin Sort: " + Arrays.toString(arrayC));
+            System.out.println("Merge Sort: " + Arrays.toString(arrayD));
+            System.out.println("Merge Sort Enhanced: " + Arrays.toString(arrayE));
+            System.out.println("Quick Sort: " + Arrays.toString(arrayF));
+            System.out.println("Quick Sort Enhanced: " + Arrays.toString(arrayG));
+
+            size *= 10;
+        }
+
+        System.out.print("\n");
+        System.out.println("---------------------------------------------------------------------------");
+        System.out.println("STRING PATTERN MATCHING");
+
         int total;
         int total2;
         String txt1 = "dcbaacbaarcbbacbracbbbdrbrdaardddbadaabcarddccrbrrbdbabdccabarcrdbbbarrrcccdadrbdrrcbracabdaaadabbrdbrbccaardrbcrbccrbdrabbbraacadccdrbbcbcbdbdaarcabadrcrdacrrabrarbdacdbddacbadaaabdrrrrdrdararddaarcrcrrdbbcacbrbcdaabbrbadbarbrcaadcdccbrdbbrcdabbarcaddbcbbacbbbbbbbbrrrdaaadcdcrcdccdaadacracrdabaddrardbdbdcrrbdrcrcacadrbcdbadbaccbrbcbbcbaacdadbcdcbrrcdradraarcrdbcdcbcdccbbrdrbcbadbccbcrdbbcbrbdbdbrcabrdabrddcadrcdcrdrbbcdacdcadbrdrccdaccabbdrbrbrddccbrrbbcrraaabcdrbrddaadccdbaradbdbbddrcbacbabrbddcrrbcrcddcbarcddcarbdbbbaccbbdbadcdarcadrcraddrddrcbbddbrcadbrbrarrrrbddrbabaccddrcadraaacbcbbcbaadrbarcrcdcbaadcdabadcaabddbbrrccacdccccrcarccbcddcarrabdcbaacbabdabrabcrdrarcrddabcrdbddadrcacrraddbraardadrababrdaacraaadbaacdrbdrcrrbrrbcraddbbbbrcbacbrddacracdrrbbrcdaarbdbadcracbradddcrcbdadrbbddardbbcacrbarcrbabrbrddbcbcabrbddrdaacrbddcbdddcrdbbcarcrardbadrrbrddrabccbdbrrdacrcbdbcbabardbrabbraccracbbrdaarcaadaaaaddbdccdcccdccarbccdadrbdcbadcbcdrdddcacddacbacrdddabaababrrbdraadaraadrccdradbcacr";
@@ -119,57 +145,37 @@ public class StringPatternMatching
         System.out.println("Text size: 1000 characters. \nPattern: \"abra\"");
         pat = "abra";
 
-        long bruteForceStartTime = System.nanoTime();
-        total = bruteForce(txt1, pat);
-        long bruteForceEndTime = System.nanoTime();
+        total = StringPatternMatching.bruteForce(txt1, pat);
+        total2 = StringPatternMatching.kmp(txt1, pat);
 
-        long kmpStartTime = System.nanoTime();
-        total2 = kmp(txt1, pat);
-        long kmpEndTime = System.nanoTime();
-
-        System.out.println("Brute Force found: " + total + " matches, took: " + (bruteForceEndTime - bruteForceStartTime) + " nanoseconds.");
-        System.out.println("KMP Time found: " + total2 + " matches, took: " + (kmpEndTime - kmpStartTime) + " nanoseconds.");
+        System.out.println("Brute Force found: " + total + " matches.");
+        System.out.println("KMP Time found: " + total2 + " matches.");
 
         System.out.print("\n");
         System.out.println("Text size: 5000 characters. \nPattern: \"abra\"");
 
-        long bruteForceStartTime1 = System.nanoTime();
-        total = bruteForce(txt2, pat);
-        long bruteForceEndTime1 = System.nanoTime();
+        total = StringPatternMatching.bruteForce(txt2, pat);
+        total2 = StringPatternMatching.kmp(txt2, pat);
 
-        long kmpStartTime1 = System.nanoTime();
-        total2 = kmp(txt2, pat);
-        long kmpEndTime1 = System.nanoTime();
-
-        System.out.println("Brute Force found: " + total + " matches, took: " + (bruteForceEndTime1 - bruteForceStartTime1) + " nanoseconds.");
-        System.out.println("KMP Time found: " + total2 + " matches, took: " + (kmpEndTime1 - kmpStartTime1) + " nanoseconds.");
+        System.out.println("Brute Force found: " + total + " matches.");
+        System.out.println("KMP Time found: " + total2 + " matches.");
 
         System.out.print("\n");
         System.out.println("Text size: 10000 characters. \nPattern: \"abra\"");
 
-        long bruteForceStartTime2 = System.nanoTime();
-        total = bruteForce(txt3, pat);
-        long bruteForceEndTime2 = System.nanoTime();
+        total = StringPatternMatching.bruteForce(txt3, pat);
+        total2 = StringPatternMatching.kmp(txt3, pat);
 
-        long kmpStartTime2 = System.nanoTime();
-        total2 = kmp(txt3, pat);
-        long kmpEndTime2 = System.nanoTime();
-
-        System.out.println("Brute Force found: " + total + " matches, took: " + (bruteForceEndTime2 - bruteForceStartTime2) + " nanoseconds.");
-        System.out.println("KMP Time found: " + total2 + " matches, took: " + (kmpEndTime2 - kmpStartTime2) + " nanoseconds.");
+        System.out.println("Brute Force found: " + total + " matches.");
+        System.out.println("KMP Time found: " + total2 + " matches.");
 
         System.out.print("\n");
         System.out.println("Text size: 20000 characters. \nPattern: \"abra\"");
 
-        long bruteForceStartTime3 = System.nanoTime();
-        total = bruteForce(txt4, pat);
-        long bruteForceEndTime3 = System.nanoTime();
+        total = StringPatternMatching.bruteForce(txt4, pat);
+        total2 = StringPatternMatching.kmp(txt4, pat);
 
-        long kmpStartTime3 = System.nanoTime();
-        total2 = kmp(txt4, pat);
-        long kmpEndTime3 = System.nanoTime();
-
-        System.out.println("Brute Force found: " + total + " matches, took: " + (bruteForceEndTime3 - bruteForceStartTime3) + " nanoseconds.");
-        System.out.println("KMP Time found: " + total2 + " matches, took: " + (kmpEndTime3 - kmpStartTime3) + " nanoseconds.");
+        System.out.println("Brute Force found: " + total + " matches.");
+        System.out.println("KMP Time found: " + total2 + " matches.");
     }
 }

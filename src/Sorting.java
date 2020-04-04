@@ -341,62 +341,69 @@ public class Sorting
         int size = 100;
         int temp;
 
-        int[] arrayA = new int[size];
-        int[] arrayB = new int[size];
-        int[] arrayC = new int[size];
-        int[] arrayD = new int[size];
-        int[] arrayE = new int[size];
-        int[] arrayF = new int[size];
-        int[] arrayG = new int[size];
-        int[] aux = new int[size];
+        for (int j = 0; j < 5; j++) {
+            System.out.print("\n");
+            System.out.println("Sorting " + size + " elements: ");
+            System.out.print("\n");
 
-        for (int i = 0; i < size; i++)
-        {
-            temp = (int)(Math.random()*((1000-0)+1))+0;
-            arrayA[i] = temp;
-            arrayB[i] = temp;
-            arrayC[i] = temp;
-            arrayD[i] = temp;
-            arrayE[i] = temp;
-            arrayF[i] = temp;
-            arrayG[i] = temp;
+            int[] arrayA = new int[size];
+            int[] arrayB = new int[size];
+            int[] arrayC = new int[size];
+            int[] arrayD = new int[size];
+            int[] arrayE = new int[size];
+            int[] arrayF = new int[size];
+            int[] arrayG = new int[size];
+            int[] aux = new int[size];
+
+            for (int i = 0; i < size; i++) {
+                temp = (int) (Math.random() * ((1000 - 0) + 1)) + 0;
+                arrayA[i] = temp;
+                arrayB[i] = temp;
+                arrayC[i] = temp;
+                arrayD[i] = temp;
+                arrayE[i] = temp;
+                arrayF[i] = temp;
+                arrayG[i] = temp;
+            }
+
+            long startTimeSelection = System.currentTimeMillis();
+            selectionSort(arrayA);
+            long estimatedTimeSelection = System.currentTimeMillis() - startTimeSelection;
+
+            long startTimeInsertion = System.currentTimeMillis();
+            insertionSort(arrayB);
+            long estimatedTimeInsertion = System.currentTimeMillis() - startTimeInsertion;
+
+            long startTimeStalin = System.currentTimeMillis();
+            stalinSort(arrayC);
+            long estimatedTimeStalin = System.currentTimeMillis() - startTimeStalin;
+
+            long startTimeMergeSort = System.currentTimeMillis();
+            mergeSort(arrayD, arrayD.length);
+            long estimatedTimeMergeSort = System.currentTimeMillis() - startTimeMergeSort;
+
+            long startTimeMergeSortEnhanced = System.currentTimeMillis();
+            mergeSortEnhanced(arrayE, arrayE.length);
+            long estimatedTimeMergeSortEnhanced = System.currentTimeMillis() - startTimeMergeSortEnhanced;
+
+            long startTimeQuickSort = System.currentTimeMillis();
+            quickSort(arrayF, 0, arrayF.length - 1);
+            long estimatedTimeQuickSort = System.currentTimeMillis() - startTimeQuickSort;
+
+            //shuffle(arrayG);
+            long startTimeQuickSortEnhanced = System.currentTimeMillis();
+            quickSortEnhanced(arrayG, 0, arrayF.length - 1);
+            long estimatedTimeQuickSortEnhanced = System.currentTimeMillis() - startTimeQuickSortEnhanced;
+
+            System.out.println("Selection Sort took : " + estimatedTimeSelection + " milliseconds.");
+            System.out.println("Insertion Sort took : " + estimatedTimeInsertion + " milliseconds.");
+            System.out.println("Stalin Sort took : " + estimatedTimeStalin + " milliseconds.");
+            System.out.println("Merge Sort took : " + estimatedTimeMergeSort + " milliseconds.");
+            System.out.println("Merge Sort Enhanced took : " + estimatedTimeMergeSortEnhanced + " milliseconds.");
+            System.out.println("Quick Sort took : " + estimatedTimeQuickSort + " milliseconds.");
+            System.out.println("Quick Sort Enhanced took : " + estimatedTimeQuickSortEnhanced + " milliseconds.");
+
+            size *= 6;
         }
-
-        long startTimeSelection = System.nanoTime();
-        selectionSort(arrayA);
-        long estimatedTimeSelection = System.nanoTime() - startTimeSelection;
-
-        long startTimeInsertion = System.nanoTime();
-        insertionSort(arrayB);
-        long estimatedTimeInsertion = System.nanoTime() - startTimeInsertion;
-
-        long startTimeStalin = System.nanoTime();
-        stalinSort(arrayC);
-        long estimatedTimeStalin = System.nanoTime() - startTimeStalin;
-
-        long startTimeMergeSort = System.nanoTime();
-        mergeSort(arrayD, arrayD.length);
-        long estimatedTimeMergeSort = System.nanoTime() - startTimeMergeSort;
-
-        long startTimeMergeSortEnhanced = System.nanoTime();
-        mergeSortEnhanced(arrayE, arrayE.length);
-        long estimatedTimeMergeSortEnhanced = System.nanoTime() - startTimeMergeSortEnhanced;
-
-        long startTimeQuickSort = System.nanoTime();
-        quickSort(arrayF, 0, arrayF.length-1);
-        long estimatedTimeQuickSort = System.nanoTime() - startTimeQuickSort;
-
-        //shuffle(arrayG);
-        long startTimeQuickSortEnhanced = System.nanoTime();
-        quickSortEnhanced(arrayG, 0, arrayF.length-1);
-        long estimatedTimeQuickSortEnhanced = System.nanoTime() - startTimeQuickSortEnhanced;
-
-        System.out.println("Selection Sort: " + Arrays.toString(arrayA) + "took : " + estimatedTimeSelection + " nano seconds.");
-        System.out.println("Insertion Sort: " + Arrays.toString(arrayB) + "took : " + estimatedTimeInsertion + " nano seconds.");
-        System.out.println("Stalin Sort: " + Arrays.toString(arrayC) + "took : " + estimatedTimeStalin + " nano seconds.");
-        System.out.println("Merge Sort: " + Arrays.toString(arrayD) + "took : " + estimatedTimeMergeSort + " nano seconds.");
-        System.out.println("Merge Sort Enhanced: " + Arrays.toString(arrayE) + "took : " + estimatedTimeMergeSortEnhanced + " nano seconds.");
-        System.out.println("Quick Sort: " + Arrays.toString(arrayF) + "took : " + estimatedTimeQuickSort + " nano seconds.");
-        System.out.println("Quick Sort Enhanced: " + Arrays.toString(arrayG) + "took : " + estimatedTimeQuickSortEnhanced + " nano seconds.");
     }
 }
