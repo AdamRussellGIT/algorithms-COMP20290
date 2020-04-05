@@ -61,6 +61,8 @@ public class Trie
         //input
         String[] keys = {"bank", "book", "bar", "bring", "film", "filter", "simple", "silt", "silver"};
 
+        System.out.println("Words inserted: \"bank\", \"book\", \"bar\", \"bring\", \"film\", \"filter\", \"simple\", \"silt\", \"silver\"");
+
 
         String[] output = {"Not present in Trie!", "Present in Trie!"};
 

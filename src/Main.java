@@ -10,6 +10,7 @@ public class Main
         System.out.println("Each section will focus on a different algorithm (practical)");
         System.out.println("Descriptions of what is happening will be provided in each section.");
         System.out.println("N.B. For accurate timings, run each class individually, as calling classes from other methods will alter actual time taken.");
+        System.out.println("Where timing was an important factor to measure, I implemented custom running of certain classes in main, to ignore timings.");
 
         System.out.println("---------------------------------------------------------------------------");
         System.out.println("RUSSIAN PEASANT ALGORITHM");
@@ -177,5 +178,12 @@ public class Main
 
         System.out.println("Brute Force found: " + total + " matches.");
         System.out.println("KMP Time found: " + total2 + " matches.");
+
+
+        System.out.print("\n");
+        System.out.println("---------------------------------------------------------------------------");
+        System.out.println("TRIES\n");
+
+        Trie.main(args);
     }
 }

@@ -28,38 +28,30 @@ public class RussianPeasent
     public static void main(String[] args)
     {
         final long startTime = System.nanoTime();
-        System.out.println(RusPesAlg(245, 500));
+        System.out.println("Multiply 2 x 4: ");
+        System.out.println(RusPesAlg(2, 4));
         final long elapsedTime = System.nanoTime();
         System.out.println("The time take was " + (elapsedTime - startTime));
 
         final long startTime1 = System.nanoTime();
         System.out.print("\n");
-        System.out.println("Multiply 245 x 500: ");
+        System.out.println("Multiply 25 x 51: ");
+        System.out.println(RusPesAlg(25, 51));
         final long elapsedTime1 = System.nanoTime();
         System.out.println("The time take was " + (elapsedTime1 - startTime1));
 
         final long startTime2 = System.nanoTime();
         System.out.print("\n");
-        System.out.println("Multiply 20 x 680: ");
+        System.out.println("Multiply 202 x 680: ");
+        System.out.println(RusPesAlg(202, 680));
         final long elapsedTime2 = System.nanoTime();
         System.out.println("The time take was " + (elapsedTime2 - startTime2));
 
         final long startTime3 = System.nanoTime();
         System.out.print("\n");
-        System.out.println("Multiply -502 x 946: ");
+        System.out.println("Multiply -5025 x 9426: ");
+        System.out.println(RusPesAlg(-5025, 9426));
         final long elapsedTime3 = System.nanoTime();
         System.out.println("The time take was " + (elapsedTime3 - startTime3));
-
-        final long startTime4 = System.nanoTime();
-        System.out.print("\n");
-        System.out.println("Multiply 0 x 46: ");
-        final long elapsedTime4 = System.nanoTime();
-        System.out.println("The time take was " + (elapsedTime4 - startTime4));
-
-        final long startTime5 = System.nanoTime();
-        System.out.print("\n");
-        System.out.println("Multiply 4 x 100000: ");
-        final long elapsedTime5 = System.nanoTime();
-        System.out.println("The time take was " + (elapsedTime5 - startTime5));
     }
 }

@@ -403,7 +403,7 @@ public class Sorting
             System.out.println("Quick Sort took : " + estimatedTimeQuickSort + " milliseconds.");
             System.out.println("Quick Sort Enhanced took : " + estimatedTimeQuickSortEnhanced + " milliseconds.");
 
-            size *= 6;
+            size *= 10;
         }
     }
 }
