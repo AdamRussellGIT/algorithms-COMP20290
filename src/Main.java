@@ -185,5 +185,11 @@ public class Main
         System.out.println("TRIES\n");
 
         Trie.main(args);
+
+        System.out.print("\n");
+        System.out.println("---------------------------------------------------------------------------");
+        System.out.println("RUN LENGTH ENCODING\n");
+
+        RunLengthEncoding.main(args);
     }
 }
