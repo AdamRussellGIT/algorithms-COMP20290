@@ -12,7 +12,7 @@ This class can be run to see implementations of all the other classes (e.g. sort
 ### RussianPeasant.java
 This class contains the implementation for the Russian Peasant Multiplication Algorithm, alongside timings for different sizes of integers (e.g. 1x1, 235x651 etc).
 
-### FibRecursion
+### FibRecursion.java
 This class contains an implementation of a recursive solution to finding the nth fibonacci numbers, along with timings for differet values of n.
 
 ### Etc
