@@ -341,7 +341,7 @@ public class Sorting
         int size = 100;
         int temp;
 
-        for (int j = 0; j < 5; j++) {
+        for (int j = 0; j < 4; j++) {
             System.out.print("\n");
             System.out.println("Sorting " + size + " elements: ");
             System.out.print("\n");
