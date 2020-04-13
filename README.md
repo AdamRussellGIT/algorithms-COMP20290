@@ -7,7 +7,7 @@ This is a repository that I maintained and updated throughout the semester for A
 ## *Classes*
 
 ### Main.java
-This class can be run to see implementations of all the other classes (e.g. sorted arrays after calling sorting algorithms from the Sorting.java class).
+This class can be run to see implementations of all the other classes (e.g. sorted arrays after calling sorting algorithms from the Sorting.java class).<br/>
 *N.B. All classes here care called via there main function except the sorting class. This is because in the sorting class, the sorted arrays are no actually printed, only timings are. I have run seperate code in the main class that prints out the sorted arrays after calling each sort, so it can be seen that each sorting method actually sorts.*
 
 ### RussianPeasant.java
