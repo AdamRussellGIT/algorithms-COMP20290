@@ -20,7 +20,7 @@ This class contains an implementation of a recursive solution to finding the nth
 This class contains a method which prints out instructions on how to solve the towers of Hanoi problem for an inputted N number of disks and 3 towers. The method works recursively.
 
 ### ThreeSumA.java && ThreeSumB.java
-These classes contain two different implementations of a method which returns the number of triples i, j, k such that a[i] + a[j] + a[k] = 0. In each class timings were considered to see which implementation was better.
+These classes contain two different implementations of a method which returns the number of triples i, j, k such that a[i] + a[j] + a[k] = 0. In each class timings were considered to see which implementation was better.<br/>
 *N.B. Due to the use of a special In.class class, these classes were ran and tested outside of my IDE, in the command prompt. The timings can be seen in the Analysis Timings Google Sheet associated with this repo.*
 
 ### Sorting.java
@@ -42,10 +42,20 @@ This class contains an implementation of a Trie data structure, along with simpl
 This class contains both a brute force approach aswel as the Knuth-Morris-Pratt Algorithm for finding specified patterns in text. Also included is timings comparing the two algorithms, which can be seen in the Algorithm Anaylsis Charts spreadsheet in this repo.
 
 ### RunLengthEncoding
+This class contains an implementation of a basic compression algorithms whihc, when given a string, compresses it.<br/>
+E.g.
+"aaabbbbcceefeee" = "a3b4c2e2fe3"<br/>
+*N.B. The other part of the practical is located in the PRACTICAL 9 BINARYDUMP RLE COMPRESSION.pdf pdf. See 'Miscellaneous' for more details.*
 
 ## *Miscellaneous*
+### Kints.txt
+These files were used in collaboration with ThreeSumA.java && ThreeSumB.java as the input arrays.
 
-### Etc
+### Practical's 1 - 6
+These pdf's contain the answers the non code practical questions.
+
+### PRACTICAL 9 BINARYDUMP RLE COMPRESSION.pdf
+This contains the solutions to the questions on practical 9 in regard to RLE, using BinaryDump.java, Hex Encoding etc.
 
 # Versioning
 
