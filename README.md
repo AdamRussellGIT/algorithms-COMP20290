@@ -41,7 +41,7 @@ This class contains an implementation of a Trie data structure, along with simpl
 ### [StringPatternMatching.java](src/StringPatternMatching.java)
 This class contains both a brute force approach aswel as the Knuth-Morris-Pratt Algorithm for finding specified patterns in text. Also included is timings comparing the two algorithms, which can be seen in the Algorithm Anaylsis Charts spreadsheet in this repo.
 
-### [RunLengthEncoding](src/RunLengthEncoding.java)
+### [RunLengthEncoding.java](src/RunLengthEncoding.java)
 This class contains an implementation of a basic compression algorithms whihc, when given a string, compresses it.<br/>
 E.g.
 "aaabbbbcceefeee" = "a3b4c2e2fe3"<br/>
@@ -54,7 +54,7 @@ These files were used in collaboration with ThreeSumA.java && ThreeSumB.java as 
 ### Practical's 1 - 6
 These pdf's contain the answers the non code practical questions.
 
-### [PRACTICAL 9 BINARYDUMP RLE COMPRESSION.pdf](src/PRACTICAL 9 BINARYDUMP RLE COMPRESSION.pdf)
+### PRACTICAL 9 BINARYDUMP RLE COMPRESSION.pdf
 This contains the solutions to the questions on practical 9 in regard to RLE, using BinaryDump.java, Hex Encoding etc.
 
 # Versioning
