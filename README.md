@@ -49,8 +49,6 @@ E.g.
 *N.B. The other part of the practical is located in the PRACTICAL 9 BINARYDUMP RLE COMPRESSION.pdf pdf. See 'Miscellaneous' for more details.*
 
 ## Practicals
-This folder containts pdf's of the practical sheets completed over the semester.
-
 ### Practical's 1 - 6
 These pdf's contain the answers the non code practical questions.
 
