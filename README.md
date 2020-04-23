@@ -4,8 +4,8 @@ This is a repository that I maintained and updated throughout the semester for A
 
 # Navigating The Repo
 
-## *src*
-This folder contains all algorithms developed as part of the practicals.
+## [*src*](src)
+This folder contains all algorithms developed as part of the practicals, as well as a pdf analysing some of the algorithms.
 
 ### [Main.java](src/Main.java)
 This class can be run to see implementations of all the other classes (e.g. sorted arrays after calling sorting algorithms from the Sorting.java class).<br/>
