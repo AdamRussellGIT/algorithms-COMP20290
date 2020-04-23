@@ -5,7 +5,7 @@ This is a repository that I maintained and updated throughout the semester for A
 # Navigating The Repo
 
 ## [*src*](src)
-This folder contains all algorithms developed as part of the practicals.
+This folder contains all algorithms developed as part of the practicals.</br>
 Also contained here is a [pdf anaylsis of some of the algorithms](src/Algorithm%20Analysis.pdf).</br>
 [Google Sheets document referenced by Analysis pdf](https://docs.google.com/spreadsheets/d/1okFcOSyPnkcgeKQZLfD30blLTSamzbztGlgX-IN5hO8/edit?usp=sharing).
 
