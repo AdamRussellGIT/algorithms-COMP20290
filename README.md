@@ -4,7 +4,8 @@ This is a repository that I maintained and updated throughout the semester for A
 
 # Navigating The Repo
 
-## *Classes*
+## *src*
+This folder contains all algorithms developed as part of the practicals.
 
 ### [Main.java](src/Main.java)
 This class can be run to see implementations of all the other classes (e.g. sorted arrays after calling sorting algorithms from the Sorting.java class).<br/>
@@ -47,15 +48,17 @@ E.g.
 "aaabbbbcceefeee" = "a3b4c2e2fe3"<br/>
 *N.B. The other part of the practical is located in the PRACTICAL 9 BINARYDUMP RLE COMPRESSION.pdf pdf. See 'Miscellaneous' for more details.*
 
-## *Miscellaneous*
-### Kints.txt
-These files were used in collaboration with ThreeSumA.java && ThreeSumB.java as the input arrays.
-
+## Practicals
 ### Practical's 1 - 6
 These pdf's contain the answers the non code practical questions.
 
 ### PRACTICAL 9 BINARYDUMP RLE COMPRESSION.pdf
 This contains the solutions to the questions on practical 9 in regard to RLE, using BinaryDump.java, Hex Encoding etc.
+
+## *Miscellaneous*
+### Kints.txt
+These files were used in collaboration with ThreeSumA.java && ThreeSumB.java as the input arrays.
+
 
 # Versioning
 
