@@ -4,7 +4,7 @@ This is a repository that I maintained and updated throughout the semester for A
 
 # Navigating The Repo
 
-## *src*
+## [*src*](src)
 This folder contains all algorithms developed as part of the practicals, as well as a pdf analysing some of the algorithms.
 
 ### [Main.java](src/Main.java)
