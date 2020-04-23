@@ -124,12 +124,6 @@ public class Sorting
             return;
         }
 
-        if (n < 7)
-        {
-            insertionSort(a);
-            return;
-        }
-
         int mid = n/2;
         int[] left = new int[mid];
         int[] right = new int[n-mid];
@@ -152,6 +146,12 @@ public class Sorting
 
     public static void mergeEnhanced(int arr[], int l, int m, int r)
     {
+        if (r <= l + 7)
+        {
+            insertionSort(arr);
+            return;
+        }
+
         int n1 = m - l + 1;
         int n2 = r - m;
 
@@ -214,13 +214,8 @@ public class Sorting
 
         return true;
     }
-    public static void quickSort(int[] arr, int high, int low)
+    public static void quickSort(int[] arr, int low, int high)
     {
-        if (high <= (low + 30))
-        {
-            insertionSort(arr);
-        }
-
         if (low < high)
         {
             int pi = partition(arr, low, high);
@@ -256,12 +251,12 @@ public class Sorting
     }
 
 
-    public static void quickSortEnhanced(int[] arr, int high, int low)
+    public static void quickSortEnhanced(int[] arr, int low, int high)
     {
-        if (high <= (low + 10))
+        /*if (high <= (low + 7))
         {
             insertionSort(arr);
-        }
+        }*/
 
         if (low < high)
         {
@@ -274,7 +269,7 @@ public class Sorting
 
     public static int partitionEnhanced(int[] arr, int low, int high)
     {
-        int pivot = medianOf3( low, low + (high - low)/2, high);
+        int pivot = (low + (high - low)/2 + high)/3;
 
         int i = low - 1;
 
@@ -341,7 +336,7 @@ public class Sorting
         int size = 100;
         int temp;
 
-        for (int j = 0; j < 4; j++) {
+        for (int j = 0; j < 6; j++) {
             System.out.print("\n");
             System.out.println("Sorting " + size + " elements: ");
             System.out.print("\n");
@@ -366,13 +361,13 @@ public class Sorting
                 arrayG[i] = temp;
             }
 
-            long startTimeSelection = System.currentTimeMillis();
+            /*long startTimeSelection = System.currentTimeMillis();
             selectionSort(arrayA);
             long estimatedTimeSelection = System.currentTimeMillis() - startTimeSelection;
 
             long startTimeInsertion = System.currentTimeMillis();
             insertionSort(arrayB);
-            long estimatedTimeInsertion = System.currentTimeMillis() - startTimeInsertion;
+            long estimatedTimeInsertion = System.currentTimeMillis() - startTimeInsertion;*/
 
             long startTimeStalin = System.currentTimeMillis();
             stalinSort(arrayC);
@@ -390,13 +385,13 @@ public class Sorting
             quickSort(arrayF, 0, arrayF.length - 1);
             long estimatedTimeQuickSort = System.currentTimeMillis() - startTimeQuickSort;
 
-            //shuffle(arrayG);
+            shuffle(arrayG);
             long startTimeQuickSortEnhanced = System.currentTimeMillis();
             quickSortEnhanced(arrayG, 0, arrayF.length - 1);
             long estimatedTimeQuickSortEnhanced = System.currentTimeMillis() - startTimeQuickSortEnhanced;
 
-            System.out.println("Selection Sort took : " + estimatedTimeSelection + " milliseconds.");
-            System.out.println("Insertion Sort took : " + estimatedTimeInsertion + " milliseconds.");
+            /*System.out.println("Selection Sort took : " + estimatedTimeSelection + " milliseconds.");
+            System.out.println("Insertion Sort took : " + estimatedTimeInsertion + " milliseconds.");*/
             System.out.println("Stalin Sort took : " + estimatedTimeStalin + " milliseconds.");
             System.out.println("Merge Sort took : " + estimatedTimeMergeSort + " milliseconds.");
             System.out.println("Merge Sort Enhanced took : " + estimatedTimeMergeSortEnhanced + " milliseconds.");
