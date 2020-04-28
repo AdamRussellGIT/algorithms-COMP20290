@@ -1,7 +1,13 @@
+/**
+ * Class containing implementation of Trie data structure.
+ */
 public class Trie
 {
     static final int ALPHABET_SIZE = 26;
 
+    /**
+     * Inner static class that contains the definition of what a node looks like.
+     */
     static class TrieNode
     {
         TrieNode[] children = new TrieNode[ALPHABET_SIZE];
@@ -21,6 +27,11 @@ public class Trie
 
     static TrieNode root;
 
+    /**
+     * method for inserting a character/string.
+     *
+     * @param key string to be inserted
+     */
     static void insert(String key)
     {
         TrieNode walk = root;
@@ -39,6 +50,12 @@ public class Trie
         walk.isEndOfWord = true;
     }
 
+    /**
+     * method to check if there is a given string located in the trie
+     *
+     * @param key string to search for
+     * @return true if string present otherwise false
+     */
     static boolean search(String key)
     {
         TrieNode walk = root;

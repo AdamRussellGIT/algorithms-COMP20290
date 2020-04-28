@@ -1,9 +1,20 @@
 import java.lang.*;
 
+/**
+ * Implementation and testing of the RussianPeasant multiplication algorithm.
+ */
 public class RussianPeasent
 {
+    /**
+     * Method to multiply two numbers using the Russian Peasnt algorithm.
+     *
+     * @param a first number
+     * @param b second number
+     * @return a multiplied by b
+     */
     public static long RusPesAlg(int a, int b)
     {
+        //result variable
         long res = 0;
 
         while (b > 0)

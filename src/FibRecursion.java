@@ -1,3 +1,10 @@
+/**
+ * This class provides a recursive method for calculating the nth fibonacci number.
+ * It also provides some testing for the method.
+ *
+ * @param n the number to be calculated
+ */
+
 public class FibRecursion
 {
 
@@ -18,6 +25,7 @@ public class FibRecursion
         //double recursive call
         else
         {
+            //the nth fibonacci number is the sum of the n-1th and n-2th fibonacci number
             return fibNumber(n-2) + fibNumber(n-1);
         }
     }

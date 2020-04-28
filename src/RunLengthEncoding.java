@@ -1,5 +1,15 @@
+/**
+ * Implementation of the RunLength encoding methodology algorithm.
+ */
+
 public class RunLengthEncoding
 {
+    /**
+     * This method converts an input string into an encoded, compressed output string.
+     *
+     * @param input string to be encoded
+     * @return encoded string
+     */
     public static String RLE(String input)
     {
         String output = "";

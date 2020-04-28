@@ -1,4 +1,7 @@
-//class used to test implementations of all algorithms, and provide run time analysis
+/**
+ * This class is used to run almost all of the other classes main functions (including a custom sorting methodology).
+ * Timings are contained in each individual class.
+ */
 
 import java.util.Arrays;
 

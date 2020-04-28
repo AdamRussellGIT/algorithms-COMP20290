@@ -1,7 +1,15 @@
 import java.util.Arrays;
 
+/**
+ * A class containing multiple different sorting algorithms alongside testing for each.
+ */
 public class Sorting
 {
+    /**
+     * Implementation of selection sort.
+     *
+     * @param a int array to be sorted
+     */
     public static void selectionSort(int[] a)
     {
         int temp;
@@ -13,18 +21,25 @@ public class Sorting
 
             for (int j = i + 1; j < a.length; j++)
             {
+                //check if we find smaller number
                 if (a[min_index] > a[j])
                 {
                     min_index = j;
                 }
             }
 
+            //swap first element in current array with min_index
             temp = a[i];
             a[i] = a[min_index];
             a[min_index] = temp;
         }
     }
 
+    /**
+     * Implementation of Insertion sort.
+     *
+     * @param a int array to be sorted
+     */
     public static void insertionSort(int[] a)
     {
         for (int i = 1; i < a.length; i++)
@@ -32,6 +47,7 @@ public class Sorting
             int valueToSort = a[i];
             int j = i;
 
+            //move value down till not greater than previous
             while (j> 0 && a[j-1] > valueToSort)
             {
                 a[j] = a[j-1];
@@ -42,6 +58,11 @@ public class Sorting
         }
     }
 
+    /**
+     * Implementation of joke Stalin sort.
+     *
+     * @param a int array to be sorted
+     */
     public static void stalinSort(int[] a)
     {
         int max = a[0];
@@ -60,6 +81,12 @@ public class Sorting
         }
     }
 
+    /**
+     * Implementation of recursive mergeSort.
+     *
+     * @param a int array to be sorted
+     * @param n size of the array
+     */
     public static void mergeSort(int[] a, int n)
     {
         if (n < 2)
@@ -87,6 +114,15 @@ public class Sorting
         merge(a, left, right, mid, n-mid);
     }
 
+    /**
+     * Helper functon ofr mergeSort.
+     *
+     * @param a int array
+     * @param left first left half of a
+     * @param right right half of a
+     * @param l number that indexes the left subarray
+     * @param r number that indexes the right subarray
+     */
     public static void merge(int[] a, int[] left, int[] right, int l, int r)
     {
         int i = 0;
@@ -117,8 +153,14 @@ public class Sorting
         }
     }
 
+    /**
+     * An enhancement on the mergeSort with some alterations.
+     * @param a int array to be sorted
+     * @param n size of array
+     */
     public static void mergeSortEnhanced(int[] a, int n)
     {
+        //check if the array is sorted
         if (sorted(a))
         {
             return;
@@ -146,6 +188,7 @@ public class Sorting
 
     public static void mergeEnhanced(int arr[], int l, int m, int r)
     {
+        //do insertion sort for small subarrays
         if (r <= l + 7)
         {
             insertionSort(arr);
@@ -204,16 +247,30 @@ public class Sorting
         }
     }
 
+    /**
+     * Helper method to check if an array is sorted.
+     *
+     * @param a array to check if sorted
+     * @return true or false if array is sorted or not
+     */
     public static boolean sorted(int[] a)
     {
         for (int i = 1; i < a.length; i++) {
-            if (a[i] < a[i - 1]) {
+            if (a[i] <= a[i - 1]) {
                 return false;
             }
         }
 
         return true;
     }
+
+    /**
+     * Implementation of quickSort.
+     *
+     * @param arr array to be sorted
+     * @param low index of lower portion of array to be sorted
+     * @param high index of higher portion of array to be sorted
+     */
     public static void quickSort(int[] arr, int low, int high)
     {
         if (low < high)
@@ -225,6 +282,14 @@ public class Sorting
         }
     }
 
+    /**
+     * Helper method for quickSort to sort partitions.
+     *
+     * @param arr array to be sorted
+     * @param low lower index of subarray
+     * @param high higher index of subarray
+     * @return int index of where array should be split to be sorted
+     */
     public static int partition(int[] arr, int low, int high)
     {
         int pivot = arr[high];
@@ -361,13 +426,13 @@ public class Sorting
                 arrayG[i] = temp;
             }
 
-            /*long startTimeSelection = System.currentTimeMillis();
+            long startTimeSelection = System.currentTimeMillis();
             selectionSort(arrayA);
             long estimatedTimeSelection = System.currentTimeMillis() - startTimeSelection;
 
             long startTimeInsertion = System.currentTimeMillis();
             insertionSort(arrayB);
-            long estimatedTimeInsertion = System.currentTimeMillis() - startTimeInsertion;*/
+            long estimatedTimeInsertion = System.currentTimeMillis() - startTimeInsertion;
 
             long startTimeStalin = System.currentTimeMillis();
             stalinSort(arrayC);

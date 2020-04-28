@@ -1,5 +1,9 @@
+/**
+ * Class containing a brute force and and KMP algorithm for string pattern matching.
+ */
 public class StringPatternMatching
 {
+    //brute force implementation
     public static int bruteForce(String txt, String pat)
     {
         int n = txt.length();
@@ -7,14 +11,17 @@ public class StringPatternMatching
         boolean match;
         int count = 0;
 
+        //go through text
         for (int pos = 0; pos < n-m; pos++)
         {
             match = true;
 
             int walk;
 
+            //go for length of pattern and check for math starting a pos index
             for (walk = 0; walk < m; walk++)
             {
+                //if there is no match, math = false;
                 if (txt.charAt(pos + walk) != pat.charAt(walk))
                 {
                     match = false;
@@ -31,6 +38,7 @@ public class StringPatternMatching
         return count;
     }
 
+    //kmp implementation
     public static int kmp(String txt, String pat)
     {
         int n = txt.length();
@@ -39,6 +47,7 @@ public class StringPatternMatching
 
         int[] lps = new int[m];
 
+        //compute prefix/suffix array (to know how far to jump)
         computeLPSArray(pat, lps);
 
         int j = 0;
@@ -52,10 +61,12 @@ public class StringPatternMatching
                 j++;
             }
 
+            //found match
             if (j == m)
             {
                 count++;
 
+                //reset
                 j = lps[j-1];
             }
 
@@ -63,6 +74,7 @@ public class StringPatternMatching
             {
                 if (j != 0)
                 {
+                    //reset
                     j = lps[j-1];
                 }
 
@@ -76,6 +88,11 @@ public class StringPatternMatching
         return count;
     }
 
+    /**
+     * Helper function to compute jumps that can be made based on pattern.
+     * @param pat pattern
+     * @param lps array to be filled with jumps (prefix/suffix)
+     */
     private static void computeLPSArray(String pat, int[] lps)
     {
         int len = 0;
